@@ -13,6 +13,8 @@ import util.LeitorConsole;
  *   1. Menu do departamento: cadastrar, listar, ver folha salarial ou abrir o
  *      menu individual de um funcionário.
  *   2. Menu do funcionário: reajustar salário, demitir ou exibir os dados.
+ *
+ * @author Matheus Magri
  */
 public class TesteSistema {
 

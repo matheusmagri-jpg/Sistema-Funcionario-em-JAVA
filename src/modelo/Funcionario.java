@@ -5,6 +5,8 @@ import util.Formatador;
 /**
  * Representa um funcionário da empresa.
  * Todo funcionário nasce ativo e deixa de estar ativo quando é demitido.
+ *
+ * @author Matheus Magri
  */
 public class Funcionario {
 

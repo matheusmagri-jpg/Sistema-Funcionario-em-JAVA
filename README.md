@@ -5,11 +5,24 @@
 **Sistema de console em Java para gerenciar os funcionários de um departamento: cadastro, listagem, folha salarial, reajuste e demissão.**
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white)
+![NetBeans](https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white)
 ![POO](https://img.shields.io/badge/Paradigma-POO-2ea44f?style=for-the-badge)
 ![Status](https://img.shields.io/badge/status-conclu%C3%ADdo-success?style=for-the-badge)
 
 </div>
+
+---
+
+## 📑 Sumário
+
+- [Sobre o projeto](#-sobre-o-projeto)
+- [Funcionalidades](#-funcionalidades)
+- [Estrutura do projeto](#-estrutura-do-projeto)
+- [Modelo de classes](#-modelo-de-classes)
+- [Como executar](#-como-executar)
+- [Exemplo de uso](#-exemplo-de-uso)
+- [Ideias de evolução](#-ideias-de-evolução)
+- [Autor](#-autor)
 
 ---
 
@@ -21,7 +34,7 @@ O programa roda no terminal e mostra um menu interativo para gerenciar o **Depar
 
 - ✅ **Encapsulamento**: atributos `private`, com getters e setters
 - ✅ **Regras de negócio dentro das classes** (`demitir()`, `reajustarSalario()`, `calcularFolhaSalarial()`)
-- ✅ **Coleções**: `ArrayList` para guardar os funcionários
+- ✅ **Coleções**: `ArrayList` para guardar os funcionários, exposta como lista somente leitura
 - ✅ **Organização em pacotes** (`modelo`, `menu`, `util`)
 - ✅ **Validação de entrada**: o programa não quebra se o usuário digitar algo inválido
 
@@ -54,13 +67,14 @@ O programa roda no terminal e mostra um menu interativo para gerenciar o **Depar
 - Funcionário **demitido** não recebe reajuste e **não entra na folha salarial**.
 - O salário não pode ser negativo e o reajuste precisa ser maior que zero.
 - Campos de texto não podem ficar vazios; números inválidos pedem nova digitação.
+- O salário aceita vírgula ou ponto como separador decimal (`3000,50` ou `3000.50`).
 
 ---
 
 ## 📁 Estrutura do projeto
 
 ```
-SistemaFuncionarios/
+SistemaFuncionarios1/
 ├── src/
 │   ├── TesteSistema.java              # Classe principal (main) e fluxo do programa
 │   ├── modelo/                        # Regras de negócio
@@ -73,7 +87,9 @@ SistemaFuncionarios/
 │   └── util/                          # Ferramentas de apoio
 │       ├── LeitorConsole.java         # Leitura do teclado com validação
 │       └── Formatador.java            # Formatação de valores em reais
-├── SistemaFuncionarios.iml            # Módulo do IntelliJ IDEA
+├── nbproject/                         # Configuração do projeto no NetBeans
+├── build.xml                          # Script Ant (NetBeans)
+├── manifest.mf
 ├── .gitignore
 └── README.md
 ```
@@ -129,7 +145,8 @@ classDiagram
 
 ### Pré-requisitos
 
-- **JDK 8 ou superior** (o projeto foi desenvolvido no IntelliJ IDEA com Java 21)
+- **JDK 8 ou superior** para compilar pelo terminal.
+- O projeto NetBeans acompanha `javac.source`/`javac.target` definidos em `nbproject/project.properties` (hoje `26`). Se a sua JDK for mais antiga, ajuste esses dois valores para a versão instalada.
 
 ```bash
 java -version
@@ -140,21 +157,26 @@ javac -version
 
 ```bash
 # 1. Clonar o repositório
-git clone https://github.com/ThierryHenrymps/SistemaFuncionarios.git
-cd SistemaFuncionarios
+git clone <url-do-seu-repositorio>
+cd SistemaFuncionarios1
 
 # 2. Compilar (os .class vão para a pasta out/)
-javac -d out -sourcepath src src/TesteSistema.java
+javac -encoding UTF-8 -d out -sourcepath src src/TesteSistema.java
 
 # 3. Executar
 java -cp out TesteSistema
 ```
 
-### Pelo IntelliJ IDEA
+### Pelo NetBeans
 
-1. Abra a pasta do projeto em **File → Open**.
-2. Se a pasta `src` não aparecer como código-fonte, clique com o botão direito nela e escolha **Mark Directory as → Sources Root**.
-3. Abra `TesteSistema.java` e clique no botão ▶ ao lado do `main`.
+1. Abra **File → Open Project** e selecione a pasta do projeto.
+2. Clique com o botão direito no projeto e escolha **Run** (ou pressione `F6`).
+
+### Pelo IntelliJ IDEA / VS Code
+
+1. Abra a pasta do projeto.
+2. Marque `src` como **Sources Root** (IntelliJ: botão direito → *Mark Directory as*).
+3. Execute a classe `TesteSistema`.
 
 ---
 
@@ -226,7 +248,6 @@ Depois da demissão, a folha salarial passa a considerar só quem continua ativo
 
 ## 👨‍💻 Autor
 
-Feito por **Thierry Henry** — [@ThierryHenrymps](https://github.com/ThierryHenrymps)
-Segundo período de TI, CEFET.
+Feito por **Matheus Magri**.
 
 Projeto desenvolvido para fins de estudo de Programação Orientada a Objetos em Java.

@@ -1,6 +1,10 @@
 package menu;
 
-/** Menu principal do sistema (somente exibe as opções). */
+/**
+ * Menu principal do sistema (somente exibe as opções).
+ *
+ * @author Matheus Magri
+ */
 public final class MenuDepartamento {
 
     private MenuDepartamento() {

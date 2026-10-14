@@ -1,6 +1,10 @@
 package menu;
 
-/** Menu das ações possíveis sobre um funcionário já selecionado. */
+/**
+ * Menu das ações possíveis sobre um funcionário já selecionado.
+ *
+ * @author Matheus Magri
+ */
 public final class MenuFuncionario {
 
     private MenuFuncionario() {

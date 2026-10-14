@@ -3,7 +3,11 @@ package menu;
 import modelo.Funcionario;
 import util.LeitorConsole;
 
-/** Tela de cadastro: pergunta os dados e devolve o Funcionario criado. */
+/**
+ * Tela de cadastro: pergunta os dados e devolve o Funcionario criado.
+ *
+ * @author Matheus Magri
+ */
 public final class CadastroFuncionario {
 
     private CadastroFuncionario() {

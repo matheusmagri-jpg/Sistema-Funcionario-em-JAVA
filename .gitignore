@@ -1,5 +1,6 @@
 # =============================================================================
-# .gitignore – Sistema de Funcionários (Java / IntelliJ IDEA)
+# .gitignore - Sistema de Funcionarios (Java / NetBeans, IntelliJ, Eclipse, VS Code)
+# Autor: Matheus Magri
 # =============================================================================
 
 # -----------------------------------------------------------------------------
@@ -13,26 +14,38 @@
 *.zip
 *.tar.gz
 *.rar
+*.7z
 
 # Crash logs da JVM
 hs_err_pid*
 replay_pid*
 
 # -----------------------------------------------------------------------------
-# Saídas de build
+# Saidas de build
+# (build/ e dist/ sao gerados pelo NetBeans/Ant; out/ pelo IntelliJ)
 # -----------------------------------------------------------------------------
-out/
-bin/
 build/
 dist/
+out/
+bin/
 target/
+.gradle/
+
+# -----------------------------------------------------------------------------
+# NetBeans
+# nbproject/private/ guarda caminhos e arquivos abertos da SUA maquina;
+# o restante de nbproject/ fica versionado para o projeto abrir em qualquer lugar.
+# -----------------------------------------------------------------------------
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
 
 # -----------------------------------------------------------------------------
 # IntelliJ IDEA
-# (o arquivo SistemaFuncionarios.iml é mantido no repositório para o IntelliJ
-#  reconhecer a pasta src como código-fonte ao abrir o projeto)
 # -----------------------------------------------------------------------------
 .idea/
+*.iml
 *.ipr
 *.iws
 .kotlin/
@@ -50,21 +63,13 @@ target/
 .sts4-cache
 
 # -----------------------------------------------------------------------------
-# NetBeans
-# -----------------------------------------------------------------------------
-nbproject/private/
-nbbuild/
-nbdist/
-.nb-gradle/
-
-# -----------------------------------------------------------------------------
 # Visual Studio Code
 # -----------------------------------------------------------------------------
 .vscode/
 .history/
 
 # -----------------------------------------------------------------------------
-# Logs e temporários
+# Logs e temporarios
 # -----------------------------------------------------------------------------
 *.log
 *.tmp
@@ -93,7 +98,7 @@ $RECYCLE.BIN/
 .Trash-*
 
 # -----------------------------------------------------------------------------
-# Segredos e configurações locais (nunca versionar)
+# Segredos e configuracoes locais (nunca versionar)
 # -----------------------------------------------------------------------------
 .env
 .env.*

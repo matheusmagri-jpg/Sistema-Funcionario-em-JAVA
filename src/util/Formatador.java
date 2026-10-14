@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Funções de formatação usadas para exibir informações na tela.
+ *
+ * @author Matheus Magri
  */
 public final class Formatador {
 

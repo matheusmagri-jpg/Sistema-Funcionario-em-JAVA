@@ -8,6 +8,8 @@ import java.util.Scanner;
  * Existe um único Scanner para o programa inteiro (evita bugs de entrada ao usar
  * vários Scanners em System.in) e cada método repete a pergunta enquanto o
  * usuário digitar algo inválido, em vez de encerrar o programa com erro.
+ *
+ * @author Matheus Magri
  */
 public final class LeitorConsole {
 

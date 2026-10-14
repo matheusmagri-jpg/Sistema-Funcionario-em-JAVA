@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * Um departamento da empresa. Guarda os funcionários (até um limite) e
  * calcula a folha salarial.
+ *
+ * @author Matheus Magri
  */
 public class Departamento {
 
