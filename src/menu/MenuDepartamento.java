@@ -1,10 +1,6 @@
 package menu;
 
-/**
- * Menu principal do sistema (somente exibe as opções).
- *
- * @author Matheus Magri
- */
+/** Menu principal do sistema (somente exibe as opções). */
 public final class MenuDepartamento {
 
     private MenuDepartamento() {
@@ -18,6 +14,7 @@ public final class MenuDepartamento {
         System.out.println("[2] Listar funcionarios");
         System.out.println("[3] Folha salarial");
         System.out.println("[4] Menu individual de funcionario");
+        System.out.println("[5] Resumo do departamento");
         System.out.println("[0] Sair");
     }
 }

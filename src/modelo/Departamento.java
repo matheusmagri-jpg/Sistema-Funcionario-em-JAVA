@@ -1,3 +1,5 @@
+// Autor: Matheus Magri
+// Projeto acadêmico de gerenciamento de funcionários.
 package modelo;
 
 import java.util.ArrayList;
@@ -7,8 +9,6 @@ import java.util.List;
 /**
  * Um departamento da empresa. Guarda os funcionários (até um limite) e
  * calcula a folha salarial.
- *
- * @author Matheus Magri
  */
 public class Departamento {
 
@@ -60,6 +60,22 @@ public class Departamento {
             return null;
         }
         return funcionarios.get(posicao - 1);
+    }
+
+    /** Conta os funcionários que ainda estão ativos. */
+    public int contarFuncionariosAtivos() {
+        int total = 0;
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.isAtivo()) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    /** Conta os funcionários que já foram desligados. */
+    public int contarFuncionariosDemitidos() {
+        return funcionarios.size() - contarFuncionariosAtivos();
     }
 
     /** Soma o salário apenas dos funcionários ativos. */

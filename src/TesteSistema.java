@@ -1,3 +1,5 @@
+// Autor: Matheus Magri
+// Projeto acadêmico de gerenciamento de funcionários.
 import menu.CadastroFuncionario;
 import menu.MenuDepartamento;
 import menu.MenuFuncionario;
@@ -13,8 +15,6 @@ import util.LeitorConsole;
  *   1. Menu do departamento: cadastrar, listar, ver folha salarial ou abrir o
  *      menu individual de um funcionário.
  *   2. Menu do funcionário: reajustar salário, demitir ou exibir os dados.
- *
- * @author Matheus Magri
  */
 public class TesteSistema {
 
@@ -48,12 +48,28 @@ public class TesteSistema {
                 case 4:
                     executarMenuFuncionario(departamento);
                     break;
+                case 5:
+                    exibirResumoDepartamento(departamento);
+                    break;
                 case 0:
                     break;
                 default:
                     System.out.println("Opcao invalida.");
             }
         } while (opcao != 0);
+    }
+
+    /** Exibe indicadores rápidos para acompanhar o departamento. */
+    private static void exibirResumoDepartamento(Departamento departamento) {
+        System.out.println();
+        System.out.println("===== RESUMO DO DEPARTAMENTO =====");
+        System.out.println("Departamento: " + departamento.getNome());
+        System.out.println("Total cadastrado: " + departamento.getQuantidadeFuncionarios());
+        System.out.println("Funcionarios ativos: " + departamento.contarFuncionariosAtivos());
+        System.out.println("Funcionarios demitidos: " + departamento.contarFuncionariosDemitidos());
+        System.out.println("Folha salarial ativa: "
+                + Formatador.moeda(departamento.calcularFolhaSalarial()));
+        System.out.println("==================================");
     }
 
     private static void cadastrarFuncionario(Departamento departamento) {

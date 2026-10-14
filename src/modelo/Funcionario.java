@@ -1,3 +1,5 @@
+// Autor: Matheus Magri
+// Projeto acadêmico de gerenciamento de funcionários.
 package modelo;
 
 import util.Formatador;
@@ -5,8 +7,6 @@ import util.Formatador;
 /**
  * Representa um funcionário da empresa.
  * Todo funcionário nasce ativo e deixa de estar ativo quando é demitido.
- *
- * @author Matheus Magri
  */
 public class Funcionario {
 

@@ -1,109 +1,28 @@
-# =============================================================================
-# .gitignore - Sistema de Funcionarios (Java / NetBeans, IntelliJ, Eclipse, VS Code)
-# Autor: Matheus Magri
-# =============================================================================
-
-# -----------------------------------------------------------------------------
-# Java: arquivos compilados e pacotes
-# -----------------------------------------------------------------------------
+# Arquivos compilados e pastas geradas
+/build/
+/dist/
+/out/
+/target/
 *.class
 *.jar
-*.war
-*.ear
-*.nar
-*.zip
-*.tar.gz
-*.rar
-*.7z
 
-# Crash logs da JVM
-hs_err_pid*
-replay_pid*
+# Configurações locais do NetBeans
+/nbproject/private/
 
-# -----------------------------------------------------------------------------
-# Saidas de build
-# (build/ e dist/ sao gerados pelo NetBeans/Ant; out/ pelo IntelliJ)
-# -----------------------------------------------------------------------------
-build/
-dist/
-out/
-bin/
-target/
-.gradle/
-
-# -----------------------------------------------------------------------------
-# NetBeans
-# nbproject/private/ guarda caminhos e arquivos abertos da SUA maquina;
-# o restante de nbproject/ fica versionado para o projeto abrir em qualquer lugar.
-# -----------------------------------------------------------------------------
-nbproject/private/
-nbbuild/
-nbdist/
-.nb-gradle/
-
-# -----------------------------------------------------------------------------
-# IntelliJ IDEA
-# -----------------------------------------------------------------------------
-.idea/
-*.iml
-*.ipr
-*.iws
-.kotlin/
-
-# -----------------------------------------------------------------------------
-# Eclipse
-# -----------------------------------------------------------------------------
-.classpath
-.project
-.settings/
-.metadata/
-.factorypath
-.apt_generated/
-.springBeans
-.sts4-cache
-
-# -----------------------------------------------------------------------------
-# Visual Studio Code
-# -----------------------------------------------------------------------------
-.vscode/
-.history/
-
-# -----------------------------------------------------------------------------
-# Logs e temporarios
-# -----------------------------------------------------------------------------
+# Arquivos temporários e logs
 *.log
 *.tmp
-*.temp
-*.bak
 *.swp
 *~
 
-# -----------------------------------------------------------------------------
+# Configurações pessoais de IDE
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+
 # Sistema operacional
-# -----------------------------------------------------------------------------
-# macOS
 .DS_Store
-.AppleDouble
-.LSOverride
-._*
-
-# Windows
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-$RECYCLE.BIN/
-
-# Linux
-.directory
-.Trash-*
-
-# -----------------------------------------------------------------------------
-# Segredos e configuracoes locais (nunca versionar)
-# -----------------------------------------------------------------------------
-.env
-.env.*
-*.key
-*.pem
-*.p12
-*.jks
-*.keystore

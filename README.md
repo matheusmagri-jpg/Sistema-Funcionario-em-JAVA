@@ -1,253 +1,101 @@
-<div align="center">
+# Sistema de Gestão de Funcionários
 
-# 👥 Sistema de Funcionários
+**Autor:** Matheus Magri  
+**Linguagem:** Java  
+**Tipo:** Projeto acadêmico de console
 
-**Sistema de console em Java para gerenciar os funcionários de um departamento: cadastro, listagem, folha salarial, reajuste e demissão.**
+## Sobre o projeto
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![NetBeans](https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white)
-![POO](https://img.shields.io/badge/Paradigma-POO-2ea44f?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-conclu%C3%ADdo-success?style=for-the-badge)
+O Sistema de Gestão de Funcionários permite cadastrar e consultar funcionários de um departamento, acompanhar a folha salarial e executar ações individuais, como reajustar salário ou registrar o desligamento de um funcionário.
 
-</div>
+O projeto foi organizado em classes para separar as responsabilidades e facilitar o aprendizado de programação orientada a objetos.
 
----
+## Funcionalidades
 
-## 📑 Sumário
+- Cadastro de funcionários com nome, CPF, cargo e salário.
+- Validação de campos de texto obrigatórios e de valores numéricos.
+- Limite de até 5 funcionários por departamento.
+- Listagem dos funcionários cadastrados.
+- Consulta da folha salarial considerando somente funcionários ativos.
+- Menu individual para reajustar salário, demitir ou consultar dados.
+- Resumo do departamento com total cadastrado, ativos, demitidos e folha salarial ativa.
+- Exibição de valores monetários no formato brasileiro.
 
-- [Sobre o projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Estrutura do projeto](#-estrutura-do-projeto)
-- [Modelo de classes](#-modelo-de-classes)
-- [Como executar](#-como-executar)
-- [Exemplo de uso](#-exemplo-de-uso)
-- [Ideias de evolução](#-ideias-de-evolução)
-- [Autor](#-autor)
+## Tecnologias e conceitos
 
----
+- Java 17 ou superior.
+- Programação orientada a objetos.
+- Classes, objetos, encapsulamento, métodos e construtores.
+- Listas (`ArrayList`) para manter os funcionários em memória.
+- Estruturas de decisão (`if`, `switch`) e repetição (`while`, `do-while`, `for`).
+- Tratamento de entradas inválidas com `try/catch`.
 
-## 📖 Sobre o projeto
+## Organização das pastas
 
-O programa roda no terminal e mostra um menu interativo para gerenciar o **Departamento de TI**. Dá para cadastrar funcionários, listá-los, calcular a folha salarial e, depois de escolher um funcionário, reajustar o salário, demiti-lo ou ver os seus dados.
-
-### Conceitos praticados
-
-- ✅ **Encapsulamento**: atributos `private`, com getters e setters
-- ✅ **Regras de negócio dentro das classes** (`demitir()`, `reajustarSalario()`, `calcularFolhaSalarial()`)
-- ✅ **Coleções**: `ArrayList` para guardar os funcionários, exposta como lista somente leitura
-- ✅ **Organização em pacotes** (`modelo`, `menu`, `util`)
-- ✅ **Validação de entrada**: o programa não quebra se o usuário digitar algo inválido
-
----
-
-## ✨ Funcionalidades
-
-### Menu do departamento
-
-| Opção | O que faz |
-|-------|-----------|
-| 1 | Cadastrar funcionário (nome, CPF, cargo e salário) |
-| 2 | Listar os funcionários, com a situação de cada um |
-| 3 | Mostrar a folha salarial (soma dos salários dos funcionários **ativos**) |
-| 4 | Abrir o menu individual de um funcionário |
-| 0 | Sair do sistema |
-
-### Menu do funcionário
-
-| Opção | O que faz |
-|-------|-----------|
-| 1 | Reajuste salarial, informando o percentual (ex.: `10` = +10%) |
-| 2 | Demitir o funcionário |
-| 3 | Exibir os dados do funcionário |
-| 0 | Voltar ao menu do departamento |
-
-### Regras do sistema
-
-- Cada departamento aceita **no máximo 5 funcionários**.
-- Funcionário **demitido** não recebe reajuste e **não entra na folha salarial**.
-- O salário não pode ser negativo e o reajuste precisa ser maior que zero.
-- Campos de texto não podem ficar vazios; números inválidos pedem nova digitação.
-- O salário aceita vírgula ou ponto como separador decimal (`3000,50` ou `3000.50`).
-
----
-
-## 📁 Estrutura do projeto
-
-```
+```text
 SistemaFuncionarios1/
 ├── src/
-│   ├── TesteSistema.java              # Classe principal (main) e fluxo do programa
-│   ├── modelo/                        # Regras de negócio
-│   │   ├── Funcionario.java
-│   │   └── Departamento.java
-│   ├── menu/                          # Telas do console (só exibem e coletam dados)
+│   ├── TesteSistema.java
+│   ├── menu/
+│   │   ├── CadastroFuncionario.java
 │   │   ├── MenuDepartamento.java
-│   │   ├── MenuFuncionario.java
-│   │   └── CadastroFuncionario.java
-│   └── util/                          # Ferramentas de apoio
-│       ├── LeitorConsole.java         # Leitura do teclado com validação
-│       └── Formatador.java            # Formatação de valores em reais
-├── nbproject/                         # Configuração do projeto no NetBeans
-├── build.xml                          # Script Ant (NetBeans)
+│   │   └── MenuFuncionario.java
+│   ├── modelo/
+│   │   ├── Departamento.java
+│   │   └── Funcionario.java
+│   └── util/
+│       ├── Formatador.java
+│       └── LeitorConsole.java
+├── nbproject/
+├── build.xml
 ├── manifest.mf
 ├── .gitignore
 └── README.md
 ```
 
-### Quem faz o quê
+- **`modelo`**: representa as entidades e regras do sistema.
+- **`menu`**: apresenta as opções e coleta os dados para cadastro.
+- **`util`**: reúne recursos reutilizáveis para leitura e formatação.
+- **`TesteSistema.java`**: inicia a aplicação e coordena os menus.
 
-| Pacote | Responsabilidade |
-|--------|------------------|
-| `modelo` | Guarda os dados e as **regras** (o que um funcionário e um departamento fazem) |
-| `menu` | Mostra os menus e pergunta os dados ao usuário |
-| `util` | Funções reutilizáveis: ler o teclado e formatar dinheiro |
-| `TesteSistema` | Liga tudo: chama os menus e usa as classes do `modelo` |
+## Como executar
 
----
+### Pelo Apache NetBeans
 
-## 🧬 Modelo de classes
-
-```mermaid
-classDiagram
-    class Funcionario {
-        -String nome
-        -String cpf
-        -String cargo
-        -double salario
-        -boolean ativo
-        +Funcionario(nome, cpf, cargo, salario)
-        +reajustarSalario(double percentual) boolean
-        +demitir() boolean
-        +isAtivo() boolean
-        +toString() String
-    }
-    class Departamento {
-        +int CAPACIDADE_MAXIMA = 5
-        -String nome
-        -List~Funcionario~ funcionarios
-        +adicionarFuncionario(Funcionario) boolean
-        +getFuncionario(int posicao) Funcionario
-        +estaLotado() boolean
-        +calcularFolhaSalarial() double
-        +listarFuncionarios() void
-    }
-    class TesteSistema {
-        +main(String[] args)
-    }
-    Departamento "1" o-- "0..5" Funcionario : possui
-    TesteSistema ..> Departamento : usa
-    TesteSistema ..> Funcionario : usa
-```
-
----
-
-## 🚀 Como executar
-
-### Pré-requisitos
-
-- **JDK 8 ou superior** para compilar pelo terminal.
-- O projeto NetBeans acompanha `javac.source`/`javac.target` definidos em `nbproject/project.properties` (hoje `26`). Se a sua JDK for mais antiga, ajuste esses dois valores para a versão instalada.
-
-```bash
-java -version
-javac -version
-```
+1. Extraia o arquivo ZIP.
+2. No NetBeans, selecione **File > Open Project** e escolha a pasta `SistemaFuncionarios1`.
+3. Verifique se o projeto está usando JDK 17 ou superior.
+4. Execute o projeto (Run Project).
 
 ### Pelo terminal
 
+Com o JDK instalado, entre na pasta do projeto e compile os arquivos:
+
 ```bash
-# 1. Clonar o repositório
-git clone <url-do-seu-repositorio>
-cd SistemaFuncionarios1
+javac -encoding UTF-8 -d out src/TesteSistema.java src/menu/*.java src/modelo/*.java src/util/*.java
+```
 
-# 2. Compilar (os .class vão para a pasta out/)
-javac -encoding UTF-8 -d out -sourcepath src src/TesteSistema.java
+Depois execute:
 
-# 3. Executar
+```bash
 java -cp out TesteSistema
 ```
 
-### Pelo NetBeans
+## Observações importantes
 
-1. Abra **File → Open Project** e selecione a pasta do projeto.
-2. Clique com o botão direito no projeto e escolha **Run** (ou pressione `F6`).
+- Os dados são mantidos apenas durante a execução. Ao fechar o programa, os cadastros não são salvos em arquivo ou banco de dados.
+- O CPF é armazenado como texto; este projeto ainda não realiza validação dos dígitos verificadores nem impede CPFs duplicados.
+- O limite de cinco funcionários é uma regra didática definida em `Departamento.CAPACIDADE_MAXIMA`.
+- O sistema é um projeto educacional e não deve ser usado como sistema oficial de folha de pagamento.
 
-### Pelo IntelliJ IDEA / VS Code
+## Melhorias futuras
 
-1. Abra a pasta do projeto.
-2. Marque `src` como **Sources Root** (IntelliJ: botão direito → *Mark Directory as*).
-3. Execute a classe `TesteSistema`.
-
----
-
-## 🖥️ Exemplo de uso
-
-```text
-++++ SISTEMA DE GESTAO DE DEPARTAMENTO ++++
-Departamento de TI
-[1] Cadastrar funcionario
-[2] Listar funcionarios
-[3] Folha salarial
-[4] Menu individual de funcionario
-[0] Sair
-Escolha: 1
-
-++++++++++++++++++++
------ Cadastro -----
-++++++++++++++++++++
-Nome do funcionario: Ana Souza
-CPF: 123.456.789-00
-Cargo: Desenvolvedora
-Salario: 5000
--> Ana Souza cadastrado com sucesso.
-```
-
-Listando e vendo a folha salarial:
-
-```text
-Escolha: 2
-Departamento de TI:
-  1. Funcionario: Ana Souza | CPF: 123.456.789-00 | Cargo: Desenvolvedora | Salario: R$ 5.000,00 | Situacao: Ativo
-  2. Funcionario: Bruno Lima | CPF: 987.654.321-00 | Cargo: Analista | Salario: R$ 3.000,50 | Situacao: Ativo
-
-Escolha: 3
-Folha salarial: R$ 8.000,50
-```
-
-Menu individual (reajuste e demissão):
-
-```text
-Escolha: 4
-Numero do funcionario: 1
-Funcionario selecionado: Ana Souza
-
-[1] Reajuste salarial  [2] Demitir  [3] Exibir dados  [0] Voltar
-Escolha: 1
-Digite o percentual de reajuste: 10
-Ana Souza -> novo salario: R$ 5.500,00 (reajuste de 10.0%)
-Escolha: 2
-Ana Souza foi demitido.
-Escolha: 1
-Digite o percentual de reajuste: 5
-Reajuste nao realizado (funcionario demitido ou percentual invalido).
-```
-
-Depois da demissão, a folha salarial passa a considerar só quem continua ativo (no exemplo acima: `R$ 3.000,50`).
+- Salvar os dados em arquivo ou banco de dados.
+- Validar CPF e impedir cadastros duplicados.
+- Permitir editar dados cadastrais e pesquisar por nome ou CPF.
+- Criar testes automatizados.
+- Desenvolver uma interface gráfica.
 
 ---
 
-## 🛠️ Ideias de evolução
-
-- [ ] Permitir vários departamentos
-- [ ] Impedir dois funcionários com o mesmo CPF e validar o formato do CPF
-- [ ] Adicionar a opção de editar os dados de um funcionário
-- [ ] Salvar os dados em arquivo para não perdê-los ao fechar o programa
-- [ ] Escrever testes unitários com JUnit
-
----
-
-## 👨‍💻 Autor
-
-Feito por **Matheus Magri**.
-
-Projeto desenvolvido para fins de estudo de Programação Orientada a Objetos em Java.
+Desenvolvido por **Matheus Magri** como projeto de estudo em Java.
